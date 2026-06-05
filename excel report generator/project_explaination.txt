@@ -1,0 +1,275 @@
+# Excel Report Generator using Python
+
+## Project Overview
+
+The Excel Report Generator is a desktop-based data analysis application developed using Python. The project automates the process of transforming raw CSV data into a structured and professionally formatted Excel report. It provides statistical summaries, pivot table analysis, and graphical visualizations through an easy-to-use graphical interface.
+
+The application is designed to reduce manual data processing effort and demonstrate practical usage of Python libraries for real-world data engineering and reporting tasks.
+
+---
+
+## Objective
+
+The main objective of this project is to:
+
+* Read real-world dataset files in CSV format
+* Perform automated data analysis
+* Generate statistical summaries
+* Create pivot tables for aggregated insights
+* Visualize data using charts
+* Export results into a formatted Excel report
+* Provide a user-friendly GUI for interaction
+
+---
+
+## Features
+
+* Graphical User Interface built using Tkinter
+* CSV file selection through file dialog
+* Automatic detection of numeric and categorical columns
+* Statistical calculations including:
+
+  * Total
+  * Average
+  * Maximum
+  * Minimum
+  * Standard Deviation
+* Pivot table generation for summarized analysis
+* Bar chart visualization using Matplotlib
+* Multi-sheet Excel report generation
+* User-selected save location
+* Automatic opening of generated Excel report
+
+---
+
+## Technologies Used
+
+| Technology | Purpose                            |
+| ---------- | ---------------------------------- |
+| Python     | Core programming language          |
+| Tkinter    | GUI development                    |
+| Pandas     | Data processing and analysis       |
+| Matplotlib | Data visualization                 |
+| OpenPyXL   | Excel file creation and formatting |
+
+---
+
+## Project Workflow
+
+1. User launches the application.
+2. User selects a CSV dataset file.
+3. Program reads and processes the data.
+4. Numeric columns are analyzed automatically.
+5. Statistical summary is generated.
+6. Pivot table is created using categorical data.
+7. A bar chart visualization is produced.
+8. User selects a save location.
+9. Excel report is generated with multiple sheets.
+10. Report opens automatically after creation.
+
+---
+
+## Excel Report Structure
+
+The generated Excel file contains:
+
+* **Sheet 1 – Raw Data**
+
+  * Original dataset imported from CSV
+
+* **Sheet 2 – Summary**
+
+  * Statistical metrics for numeric columns
+
+* **Sheet 3 – Pivot Table**
+
+  * Aggregated analysis based on category data
+
+* **Sheet 4 – Bar Chart**
+
+  * Visual representation of pivot results
+
+---
+
+## Dataset Description
+
+The sample dataset represents real-world electronic product sales data including:
+
+* Order ID
+* Date
+* Region
+* Salesperson
+* Product Category
+* Units Sold
+* Unit Price
+* Revenue
+
+The dataset simulates business sales transactions and is suitable for demonstrating reporting and analytics workflows.
+
+---
+
+## How to Run the Project
+
+1. Install required libraries:
+
+   pip install pandas matplotlib openpyxl
+
+2. Run the Python script:
+
+   python main.py
+
+3. Select a CSV file when prompted.
+
+4. Choose the location to save the Excel report.
+
+5. The generated report will open automatically.
+
+---
+
+## Learning Outcomes
+
+This project demonstrates:
+
+* GUI application development in Python
+* Data cleaning and preprocessing
+* Automated report generation
+* Data visualization techniques
+* Excel automation using Python
+* Practical data engineering workflow implementation
+
+---
+
+## Future Enhancements
+
+* Multiple chart types
+* Dynamic pivot selection
+* Dashboard-style interface
+* Support for large datasets
+* Export to PDF reports
+
+---
+
+## Author
+
+Developed as an academic project to demonstrate Python-based data analysis and reporting automation.
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+import numpy as np
+
+# Defining the activation function
+def activation_function(y):
+    if y > 0:
+        return 1
+    else:
+        return 0
+
+# Weights and bias for NOT gate
+W = np.array([-1])
+b = 1
+
+# Defining the perceptron algorithm
+def perceptron_algorithm(x):
+    y = np.dot(W, x) + b
+    return activation_function(y)
+
+# Verification
+input1 = np.array([0])
+input2 = np.array([1])
+
+print('NOT Logic:\n')
+print(f'x = 0 => y = {perceptron_algorithm(input1)}')
+print(f'x = 1 => y = {perceptron_algorithm(input2)}')
+
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+import numpy as np 
+import matplotlib.pyplot as plt 
+
+class NeuralNetwork: 
+
+    def __init__(self, input_size, hidden_size, output_size, 
+                 activation='tanh'): 
+        
+        # Initialize weights and biases 
+        self.weights_input_hidden = np.random.randn(input_size, 
+                                                    hidden_size) 
+        
+        self.bias_hidden = np.zeros((1, hidden_size))
+
+        self.weights_hidden_output = np.random.randn(hidden_size, 
+                                                     output_size) 
+        
+        self.bias_output = np.zeros((1, output_size)) 
+        
+        self.activation = activation 
+
+    def tanh(self, x): 
+        return np.tanh(x) 
+
+    def forward(self, X): 
+        
+        # Forward pass 
+        self.hidden_input = np.dot(X, self.weights_input_hidden) + \
+                            self.bias_hidden 
+        
+        if self.activation == 'tanh': 
+            self.hidden_output = self.tanh(self.hidden_input) 
+        
+        else: 
+            raise ValueError("Invalid activation function") 
+        
+        self.output = np.dot(self.hidden_output, 
+                             self.weights_hidden_output) + \
+                             self.bias_output 
+        
+        return self.output 
+
+
+# Example usage: 
+
+input_size = 3 
+hidden_size = 4 
+output_size = 2 
+
+# Create a neural network with tanH activation function 
+nn_tanh = NeuralNetwork(input_size, hidden_size, output_size, 
+                        activation='tanh') 
+
+# Sample input data 
+X = np.array([[0.1, 0.2, 0.3]]) 
+
+# Forward pass with tanH activation 
+output_tanh = nn_tanh.forward(X) 
+
+print("Output with tanH activation:", output_tanh)
+
+
+# Plotting tanH Activation Function 
+
+# Generate x values 
+x_values = np.linspace(-10, 10, 100) 
+
+# Calculate y values for tanH activation function 
+y_tanh = np.tanh(x_values) 
+
+# Plot the tanH activation function 
+plt.figure(figsize=(6, 4)) 
+
+plt.plot(x_values, y_tanh, label='tanH', color='purple') 
+
+plt.title('tanH Activation Function') 
+plt.xlabel('Input') 
+plt.ylabel('Output') 
+
+plt.grid(True) 
+plt.legend() 
+
+plt.tight_layout() 
+plt.show()
+
+
+
+
+
