@@ -204,16 +204,6 @@ This project demonstrates:
 * Excel file handling using OpenPyXL
 * Practical financial data analysis
 
----
-
-## Future Enhancements
-
-* Graphical User Interface (GUI)
-* PDF report generation
-* Expense filtering by date range
-* Interactive dashboards
-* Database integration
-* Multiple user support
 
 ---
 
