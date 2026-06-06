@@ -1,0 +1,16 @@
+FAKE NEWS DETECTOR REPORT
+========================================
+
+Accuracy : 0.2000
+Precision: 0.2000
+Recall   : 1.0000
+F1 Score : 0.3333
+
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00         8
+           1       0.20      1.00      0.33         2
+
+    accuracy                           0.20        10
+   macro avg       0.10      0.50      0.17        10
+weighted avg       0.04      0.20      0.07        10
